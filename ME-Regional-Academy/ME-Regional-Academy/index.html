@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Middle East Regional Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&family=Noto+Sans+Arabic:wght@300;400;500;700;800&display=swap">
+<style>
+/* Layout: mirrors the live Academy (Litmos): SDG strip, white nav, navy search band, photo hero, Learning Library (filters + list), swim lane, network cards. Single light theme by design. */
+:root{
+  --navy:#1E3250; --text:#384249; --title:#4D4D4D; --muted:#6B747B; --line:#CDCDCD; --line-soft:#E3E6E8;
+  --footer:#ECEEEF; --pill-bg:rgba(27,145,255,.1); --pill-fg:#0057D2; --bg:#FFFFFF; --chip:#5F6468;
+  --f:"Roboto",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-ar:"Noto Sans Arabic","Roboto",Tahoma,Arial,sans-serif;
+  color-scheme:light;
+}
+[lang="ar"]{--f:var(--f-ar)}
+*{box-sizing:border-box}
+html,body{background:var(--bg)}
+body{color:var(--text);font-family:var(--f);font-size:14px;line-height:1.5;margin:0}
+[lang="ar"] body{line-height:1.75}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+[hidden]{display:none!important}
+:focus-visible{outline:3px solid #699CC6;outline-offset:2px}
+.wrap{max-width:1110px;margin-inline:auto;padding-inline:16px}
+svg{flex:none}
+
+.sdg{display:grid;grid-template-columns:repeat(17,1fr);height:4px}
+.sdg i:nth-child(1){background:#E5243B}.sdg i:nth-child(2){background:#DDA63A}.sdg i:nth-child(3){background:#4C9F38}.sdg i:nth-child(4){background:#C5192D}.sdg i:nth-child(5){background:#FF3A21}.sdg i:nth-child(6){background:#26BDE2}.sdg i:nth-child(7){background:#FCC30B}.sdg i:nth-child(8){background:#A21942}.sdg i:nth-child(9){background:#FD6925}.sdg i:nth-child(10){background:#DD1367}.sdg i:nth-child(11){background:#FD9D24}.sdg i:nth-child(12){background:#BF8B2E}.sdg i:nth-child(13){background:#3F7E44}.sdg i:nth-child(14){background:#0A97D9}.sdg i:nth-child(15){background:#56C02B}.sdg i:nth-child(16){background:#00689D}.sdg i:nth-child(17){background:#19486A}
+
+nav.top{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.12);position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+nav.top .wrap{display:flex;align-items:center;gap:18px;min-height:59px;max-width:none}
+.brand{display:flex;align-items:center;gap:7px;font-family:"Roboto",Arial,sans-serif;font-weight:900;font-size:20px;color:var(--navy);text-decoration:none}
+.brand img{width:38px;height:auto;display:block}
+.brand{font-size:24px!important;gap:8px!important}
+.menu{display:flex;gap:4px;list-style:none;margin:0;padding:0}
+.menu a{display:block;padding:8px;border-radius:6px;font-size:14px;font-weight:700;color:var(--navy);text-decoration:none;text-transform:uppercase;white-space:nowrap}
+[lang="ar"] .menu a{text-transform:none;font-size:14.5px}
+.menu a:hover{background:#F1F4F8}
+.menu a[aria-current]{box-shadow:inset 0 -3px 0 var(--navy);border-radius:0}
+.tools{margin-inline-start:auto;display:flex;align-items:center;gap:14px;position:relative}
+.langbtn{display:flex;align-items:center;gap:6px;background:none;border:0;color:var(--navy);font:inherit;font-weight:700;font-size:13px;cursor:pointer;padding:6px;border-radius:6px}
+.langbtn:hover{background:#F1F4F8}
+.langmenu{position:absolute;top:44px;inset-inline-end:44px;background:#fff;border:1px solid var(--line);border-radius:7px;box-shadow:0 6px 18px rgba(0,0,0,.12);padding:6px;min-width:150px;display:grid}
+.langmenu button{background:none;border:0;font:inherit;font-size:14px;color:var(--text);text-align:start;padding:8px 10px;border-radius:5px;cursor:pointer}
+.langmenu button:hover,.langmenu button[aria-current="true"]{background:#F1F4F8;color:var(--navy);font-weight:700}
+.langmenu .ar{font-family:var(--f-ar)}
+.avatar{width:30px;height:30px;border-radius:50%;background:#C9CED3;display:grid;place-items:center}
+@media (max-width:900px){.menu li:nth-child(3),.menu li:nth-child(5){display:none}}
+@media (max-width:760px){.menu{display:none}}
+
+.searchband{background:var(--navy);padding-block:14px}
+.sbox{max-width:540px;margin-inline:auto;position:relative}
+.sbox svg{position:absolute;inset-inline-start:18px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--navy)}
+.sbox input{width:100%;height:52px;border-radius:8px;border:0;padding-inline:46px 16px;font:inherit;font-size:14px;color:var(--text);background:#fff}
+.sbox input::placeholder{font-style:italic;color:#7A8288}
+
+.hero{position:relative;background:#1E3250 url("img/hero.jpg") 60% 30%/cover no-repeat;color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,30,48,.86) 0%,rgba(18,30,48,.62) 42%,rgba(18,30,48,.08) 78%)}
+[dir="rtl"] .hero::before{background:linear-gradient(270deg,rgba(18,30,48,.86) 0%,rgba(18,30,48,.62) 42%,rgba(18,30,48,.08) 78%)}
+.hero .wrap{position:relative;padding-block:56px 54px;display:grid;gap:14px}
+.hero .kicker{font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#D6E6F3}
+[lang="ar"] .hero .kicker{letter-spacing:0;font-size:16px}
+.hero h1{font-size:clamp(36px,5.4vw,60px);font-weight:900;line-height:1.12;max-width:15ch;text-shadow:0 1px 2px rgba(0,0,0,.25)}
+[lang="ar"] .hero h1{font-weight:800;line-height:1.4;max-width:14ch}
+.hero .sub{font-size:clamp(22px,3vw,36px);font-weight:400;line-height:1.25;margin:0;max-width:24ch}
+.hero .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+.hbtn{display:inline-block;background:#fff;color:var(--navy);border:2px solid #fff;border-radius:8px;box-shadow:0 2px 2px rgba(0,0,0,.8);padding:14px 16px;font-weight:700;font-size:15px;text-transform:uppercase;text-decoration:none;line-height:1.2}
+[lang="ar"] .hbtn{text-transform:none;font-size:16px}
+.hbtn:hover{background:#F1F4F8}
+
+section{padding-block:40px 8px}
+.cap{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cap h2{font-size:21px;font-weight:400;color:var(--text)}
+.chev{width:16px;height:16px;color:#B5BCC2}
+[dir="rtl"] .chev{transform:scaleX(-1)}
+.all{margin-inline-start:auto;font-size:13px;color:#2F6FB3;text-decoration:none}
+
+.welcome{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;align-items:start}
+.welcome .lead h2{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.25}
+.welcome .lead p{font-size:16px;line-height:1.7;margin:0 0 14px;max-width:66ch}
+[lang="ar"] .welcome .lead p{font-size:16.5px;line-height:1.95}
+.welcome .lead p.strong{font-weight:500;color:var(--navy)}
+.values{border:1px solid var(--line);border-radius:7px;padding:6px 20px}
+.value{padding-block:16px;display:grid;gap:4px;border-bottom:1px solid var(--line-soft)}
+.value:last-child{border-bottom:0}
+.value h3{font-size:15px;font-weight:700;color:var(--navy);display:flex;gap:10px;align-items:center}
+.value h3 svg{width:20px;height:20px}
+.value p{margin:0;color:var(--muted)}
+@media (max-width:860px){.welcome{grid-template-columns:1fr;gap:24px}}
+
+.lib{display:grid;grid-template-columns:230px minmax(0,1fr);gap:28px;align-items:start}
+.filters{display:grid;min-width:0;background:#fff;color:var(--text)}
+.fgroup{border-bottom:1px solid var(--line);padding-block:14px}
+.fgroup:first-child{padding-top:0}
+.fhead{display:flex;justify-content:space-between;align-items:center;width:100%;background:none;border:0;padding:4px 0 10px;font:inherit;font-size:19px;color:var(--text);cursor:pointer;text-align:start}
+.fhead svg{width:18px;height:18px;transition:transform .15s}
+.fhead[aria-expanded="false"] svg{transform:rotate(180deg)}
+.fbody{display:grid;gap:10px}
+.chk{display:flex;align-items:flex-start;gap:8px;font-size:15px;cursor:pointer;line-height:1.35}
+.chk input{appearance:none;-webkit-appearance:none;width:16px;height:16px;margin:2px 0 0;flex:none;background:#fff;border:1.5px solid #6B747B;border-radius:3px;cursor:pointer;display:grid;place-items:center}
+.chk input:checked{background:var(--navy);border-color:var(--navy)}
+.chk input:checked::after{content:"";width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
+.chk.b{font-weight:700}
+.tsearch{position:relative;margin-bottom:10px}
+.tsearch svg{position:absolute;inset-inline-start:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--navy)}
+.tsearch input{width:100%;height:46px;border:1px solid #E5E7E9;border-radius:8px;padding-inline:38px 10px;font:inherit;font-size:14.5px;background:#fff;color:var(--text)}
+.tsearch input::placeholder{font-style:italic}
+.tree{max-height:330px;overflow:auto;display:grid;gap:12px;padding-inline-end:6px;scrollbar-width:thin}
+.tnode{display:grid;gap:10px}
+.tparent{display:flex;align-items:flex-start;gap:6px}
+.tog{background:none;border:0;padding:0;width:18px;height:22px;cursor:pointer;color:var(--text);display:grid;place-items:center}
+.tog svg{width:15px;height:15px}
+.tog[aria-expanded="false"] svg{transform:rotate(-90deg)}
+[dir="rtl"] .tog[aria-expanded="false"] svg{transform:rotate(90deg)}
+.tkids{display:grid;gap:10px;padding-inline-start:46px}
+.tleaf{padding-inline-start:24px}
+.res{min-width:0}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips:empty{display:none}
+.fchip{display:inline-flex;align-items:center;gap:8px;background:var(--chip);color:#fff;border:0;border-radius:20px;padding:7px 12px;font:inherit;font-size:13px;cursor:pointer}
+.fchip .x{width:16px;height:16px;border-radius:50%;background:#fff;color:var(--chip);display:grid;place-items:center;font-size:10px;font-weight:700}
+.tbtn{display:inline-flex;align-items:center;gap:6px;background:#F1F2F3;border:0;border-radius:4px;padding:8px 12px;font:inherit;font-size:13px;color:var(--text);cursor:pointer}
+.tbtn svg{width:14px;height:14px}
+.tbtn[aria-pressed="true"]{background:#DDE1E4}
+.tbtn select{font:inherit;font-size:13px;border:0;background:transparent;color:var(--text);cursor:pointer}
+.bar .spacer{flex:1}
+.rows{display:grid;gap:16px}
+.row{display:grid;grid-template-columns:240px minmax(0,1fr);border:1px solid #DADDE0;background:#fff}
+.row .img{background:#F8FAFA center/cover no-repeat;height:135px;align-self:start}
+.row .img.soon{background:#1E3250;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:14px 16px;gap:6px}
+.row .img.soon b{font-size:14px;line-height:1.25;font-family:"Roboto",Arial,sans-serif}
+.row .img.soon small{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#AECFE6;font-weight:700;font-family:"Roboto",Arial,sans-serif}
+.row .body{padding:14px 16px 16px;display:grid;gap:8px;align-content:start;position:relative}
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{font-size:11px;font-weight:700;background:var(--pill-bg);color:var(--pill-fg);border-radius:20px;padding:4px 8px;line-height:1}
+.pill.soon{background:#FFF3CC;color:#7A5B00}
+.pill.ar{background:#E7F3EE;color:#1F6B5C}
+.row h3{font-size:16px;font-weight:700;color:var(--title);line-height:1.35;padding-inline-end:28px}
+.row h3 a{text-decoration:none}
+.row h3 a:hover{text-decoration:underline}
+.row .alt{font-size:13px;color:var(--muted);margin-top:-4px}
+.row p{margin:0;font-size:14px;color:#5A6268;line-height:1.6;max-width:80ch}
+.heart{position:absolute;top:14px;inset-inline-end:14px;width:18px;height:18px;color:#384249}
+.facts{display:flex;flex-wrap:wrap;gap:4px 18px;font-size:12.5px;color:var(--muted)}
+.facts b{color:var(--text);font-weight:500}
+.rows.grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.rows.grid .row{grid-template-columns:1fr}
+.rows.grid .row .img{height:auto;aspect-ratio:16/9;max-width:100%}
+.rows.grid .row p,.rows.grid .facts,.rows.grid .alt{display:none}
+.empty{display:grid;justify-items:center;gap:14px;padding:40px 10px;text-align:center}
+.empty svg{width:110px;height:110px}
+@media (max-width:860px){.lib{grid-template-columns:1fr}.filters{order:2}}
+@media (max-width:640px){.row{grid-template-columns:1fr}.row .img,.row .img.soon{height:auto;aspect-ratio:16/9;max-width:100%}}
+
+.lane{border:1px solid var(--line);border-radius:7px;padding:14px 14px 16px}
+.lane .cap{margin-bottom:12px}
+.lane .cap h3{font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px}
+.lane .cap .count{color:var(--muted);font-weight:400}
+.cards{display:grid;grid-auto-flow:column;grid-auto-columns:184px;gap:14px;overflow-x:auto;padding:0 0 6px;list-style:none;margin:0;scrollbar-width:thin}
+.cards>li{display:grid}
+.tc{border:.67px solid var(--line);border-radius:7px;overflow:hidden;background:#fff;display:grid;grid-template-rows:96px 4px 1fr auto;min-height:232px;text-decoration:none;color:var(--text)}
+.tc:hover{box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.tc .ti{background:#F8FAFA center/cover no-repeat}
+.tc .tp{background:var(--line)}
+.tc .tm{padding:8px 7px 6px;display:grid;grid-template-rows:1fr auto;gap:8px}
+.tc .tn{font-size:12.25px;line-height:1.35;font-weight:400}
+.tc .tt{display:flex;align-items:center;gap:5px;font-size:10.5px}
+.tc .tt svg{width:11px;height:11px}
+.tc .tf{background:var(--footer);color:#32363A;font-size:10.5px;padding:3.5px 7px;text-align:center}
+
+.nets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.net{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#fff;display:grid;grid-template-rows:auto 1fr auto}
+.net .ph{aspect-ratio:16/9;max-width:100%;background:#E9ECEF center/cover no-repeat}
+.net .lg{display:grid;place-items:center;padding:16px 14px;min-height:96px}
+.net .lg img{max-height:56px;max-width:100%;width:auto;object-fit:contain}
+.net .cty{border-top:1px solid var(--line-soft);font-size:12.5px;color:var(--muted);padding:7px 12px;text-align:center;background:#FAFBFB}
+.netintro{margin:0 0 18px;color:var(--muted);font-size:15px;max-width:80ch}
+@media (max-width:900px){.nets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.steps{list-style:none;margin:0;padding:18px 20px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;counter-reset:s;border:1px solid var(--line);border-radius:7px}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:12px;counter-increment:s}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;border:2px solid var(--navy);color:var(--navy);display:grid;place-items:center;font-weight:700;font-size:13px;font-family:"Roboto",Arial,sans-serif}
+.steps b{display:block;font-weight:500}
+.steps span{color:var(--muted)}
+@media (max-width:860px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+.credits{font-size:11.5px;color:#8A9196;padding-block:28px 24px}
+
+/* Case studies, as the Academy Case Library */
+.cases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.case{display:grid;gap:10px;align-content:start;text-decoration:none;color:var(--text)}
+.case .ci{position:relative;aspect-ratio:16/9;max-width:100%;background:#E9ECEF center/cover no-repeat}
+.case .ci::after{content:"";position:absolute;top:0;inset-inline-end:0;width:0;height:0;border-style:solid;border-width:0 34px 34px 0;border-color:transparent var(--navy) transparent transparent}
+[dir="rtl"] .case .ci::after{border-width:0 0 34px 34px;border-color:transparent transparent transparent var(--navy)}
+.case .lbl{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0057D2}
+[lang="ar"] .case .lbl{letter-spacing:0;font-size:12px}
+.case h3{font-size:17px;font-weight:900;line-height:1.3;color:#1B1F24}
+[lang="ar"] .case h3{font-weight:700}
+.case:hover h3{text-decoration:underline}
+.case p{margin:0;font-size:14.5px;color:#5A6268;line-height:1.55}
+.casecta{display:flex;justify-content:center;margin-top:28px}
+.obtn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--navy);color:var(--navy);background:#fff;border-radius:999px;padding:11px 22px;font-weight:700;font-size:14.5px;text-decoration:none}
+.obtn:hover{background:var(--navy);color:#fff}
+[dir="rtl"] .obtn .arr{transform:scaleX(-1)}
+@media (max-width:980px){.cases{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.cases{grid-template-columns:1fr}}
+.crumbs{background:#F2F4F5;border-bottom:1px solid var(--line-soft)}
+.crumbs .wrap{max-width:none;display:flex;gap:8px;align-items:center;padding-block:10px;font-size:13px;color:var(--text)}
+.crumbs a{text-decoration:none;color:var(--text)}
+.crumbs a:hover{text-decoration:underline}
+.crumbs .sep{color:#9AA1A6}
+.getstarted{padding-top:8px}
+main>section:last-child{padding-bottom:56px}
+</style>
+</head><body>
+
+<div class="sdg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<nav class="top" aria-label="Academy"><div class="wrap">
+  <a class="brand" href="https://academy.unglobalcompact.org/home-v2/dashboard-v2"><img src="img/ungc.png" alt="UN Global Compact" width="38" height="38">Academy</a>
+  <ul class="menu">
+    <li><a href="https://academy.unglobalcompact.org/home-v2/dashboard-v2" data-i18n="nav1"></a></li>
+    <li><a href="https://academy.unglobalcompact.org/home/library" data-i18n="nav2"></a></li>
+    <li><a href="https://academy.unglobalcompact.org/home-v2/dashboard-v2" data-i18n="nav3"></a></li>
+    <li><a href="https://academy.unglobalcompact.org/home/library" data-i18n="nav4"></a></li>
+    <li><a href="https://academy.unglobalcompact.org/home-v2/dashboard-v2" data-i18n="nav5"></a></li>
+  </ul>
+  <div class="tools">
+    <button class="langbtn" id="langBtn" type="button" aria-haspopup="true" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4" ry="9.5"/><path d="M2.5 12h19"/></svg><span id="langLabel">EN</span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="langmenu" id="langMenu" hidden>
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="ar" class="ar">العربية</button>
+    </div>
+    <span class="avatar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c1.2-4.3 4.6-6.5 8.5-6.5s7.3 2.2 8.5 6.5z"/></svg></span>
+  </div>
+</div></nav>
+
+<div class="crumbs"><div class="wrap"><a href="https://academy.unglobalcompact.org/home/library" data-i18n="nav2"></a><span class="sep" aria-hidden="true">/</span><span data-i18n="kicker"></span></div></div>
+
+<div class="searchband"><div class="wrap"><div class="sbox">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg>
+  <input id="q" type="search" autocomplete="off" data-i18n-ph="ph_search" aria-label="Search">
+</div></div></div>
+
+<main>
+<header class="hero" id="top"><div class="wrap">
+  <div class="kicker" data-i18n="kicker"></div>
+  <h1 data-i18n="h1"></h1>
+  <p class="sub" data-i18n="sub"></p>
+  <div class="btns">
+    <a class="hbtn" href="#library" data-i18n="b1"></a>
+    <a class="hbtn" href="#spark" data-i18n="b2"></a>
+    <a class="hbtn" href="#cases" data-i18n="b4"></a>
+    <a class="hbtn" href="#networks" data-i18n="b3"></a>
+  </div>
+</div></header>
+
+<section><div class="wrap welcome">
+  <div class="lead">
+    <h2 data-i18n="w_h"></h2>
+    <p data-i18n="w_p1"></p>
+    <p data-i18n="w_p2"></p>
+    <p class="strong" data-i18n="w_p3"></p>
+  </div>
+  <div class="values">
+    <div class="value"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span data-i18n="v1h"></span></h3><p data-i18n="v1"></p></div>
+    <div class="value"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 5h9M8.5 3v2M6 5c.6 3.6 2.8 6.4 6 8M11 5c-.8 3.5-3.4 6.6-7 8.3"/><path d="m13 21 4-10 4 10M14.4 17.5h5.2"/></svg><span data-i18n="v2h"></span></h3><p data-i18n="v2"></p></div>
+    <div class="value"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.8 7.2 6.2 15.8M13.2 7.2l4.6 8.6M7.5 18h9"/></svg><span data-i18n="v3h"></span></h3><p data-i18n="v3"></p></div>
+  </div>
+</div></section>
+
+<section class="getstarted"><div class="wrap">
+  <div class="cap"><h2 data-i18n="s_h"></h2></div>
+  <ol class="steps">
+    <li><div><b data-i18n="s1h"></b><span data-i18n="s1"></span></div></li>
+    <li><div><b data-i18n="s2h"></b><span data-i18n="s2"></span></div></li>
+    <li><div><b data-i18n="s3h"></b><span data-i18n="s3"></span></div></li>
+    <li><div><b data-i18n="s4h"></b><span data-i18n="s4"></span></div></li>
+  </ol>
+  
+</div></section>
+
+<section id="library"><div class="wrap">
+  <div class="cap"><h2 data-i18n="f_h"></h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></div>
+  <div class="lib">
+    <aside class="filters" id="filters" aria-label="Filters"></aside>
+    <div class="res">
+      <div class="bar">
+        <div class="chips" id="chips"></div>
+        <span class="spacer"></span>
+        <button class="tbtn" type="button" id="reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg><span data-i18n="reset"></span></button>
+        <label class="tbtn"><span data-i18n="sort"></span><select id="sort"><option value="d" data-i18n="s_def"></option><option value="az" data-i18n="s_az"></option><option value="za" data-i18n="s_za"></option></select></label>
+        <button class="tbtn" type="button" id="vList" aria-pressed="true" aria-label="List view"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="4" width="3" height="3"/><rect x="8" y="4" width="13" height="3"/><rect x="3" y="10.5" width="3" height="3"/><rect x="8" y="10.5" width="13" height="3"/><rect x="3" y="17" width="3" height="3"/><rect x="8" y="17" width="13" height="3"/></svg></button>
+        <button class="tbtn" type="button" id="vGrid" aria-pressed="false" aria-label="Grid view"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="3" y="3" width="5" height="5"/><rect x="9.5" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/><rect x="16" y="9.5" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><rect x="9.5" y="16" width="5" height="5"/><rect x="16" y="16" width="5" height="5"/></svg></button>
+      </div>
+      <div class="rows" id="rows">
+
+        <article class="row" data-key="r1" data-type="course" data-topics="hr hr-bhr hr-hrdd" data-langs="en-us">
+          <div class="img" style="background-image:url('img/hrdd.jpg')"></div>
+          <div class="body">
+            <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
+            <div class="pills"><span class="pill" data-i18n="p_course"></span></div>
+            <h3><a href="https://academy.unglobalcompact.org/course/8834481?r=False&amp;ts=639240263619909623" data-i18n="r1_t"></a></h3>
+            <div class="alt" data-i18n="r1_alt"></div>
+            <p data-i18n="r1"></p>
+            <div class="facts"><span><b data-i18n="fmt"></b> <span data-i18n="r1_fmt"></span></span><span><b data-i18n="lang"></b> <span data-i18n="l_en"></span></span></div>
+          </div>
+        </article>
+
+        <article class="row" data-key="r2" data-type="course" data-topics="proc sme supply" data-langs="en-us">
+          <div class="img" style="background-image:url('img/gpp.jpg')"></div>
+          <div class="body">
+            <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
+            <div class="pills"><span class="pill" data-i18n="p_course"></span></div>
+            <h3><a href="https://academy.unglobalcompact.org/course/8834701?r=False&amp;ts=639240258195477722" data-i18n="r2_t"></a></h3>
+            <div class="alt" data-i18n="r2_alt"></div>
+            <p data-i18n="r2"></p>
+            <div class="facts"><span><b data-i18n="partners"></b> <span data-i18n="r2_par"></span></span><span><b data-i18n="fmt"></b> <span data-i18n="r2_fmt"></span></span><span><b data-i18n="lang"></b> <span data-i18n="l_en"></span></span></div>
+          </div>
+        </article>
+
+        <article class="row" data-key="r3" data-type="course" data-topics="supply sme" data-langs="en-us">
+          <div class="img soon"><small>United Nations Global Compact</small><b>Preparing for Disruption: Ensuring Business Continuity in Uncertain Times</b></div>
+          <div class="body">
+            <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
+            <div class="pills"><span class="pill" data-i18n="p_course"></span><span class="pill soon" data-i18n="p_soon"></span></div>
+            <h3 data-i18n="r3_t"></h3>
+            <div class="alt" data-i18n="r3_alt"></div>
+            <p data-i18n="r3"></p>
+            <div class="facts"><span><b data-i18n="fmt"></b> <span data-i18n="r3_fmt"></span></span><span><b data-i18n="lang"></b> <span data-i18n="l_en"></span></span></div>
+          </div>
+        </article>
+
+        <article class="row" data-key="r4" data-type="path" data-topics="sme supply env gov gov-ac hr lab" data-langs="ar">
+          <div class="img" style="background-image:url('img/spark.jpg');background-size:contain"></div>
+          <div class="body">
+            <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
+            <div class="pills"><span class="pill" data-i18n="p_path"></span><span class="pill ar" data-i18n="p_ar"></span></div>
+            <h3><a href="#spark" data-i18n="r4_t"></a></h3>
+            <div class="alt" data-i18n="r4_alt"></div>
+            <p data-i18n="r4"></p>
+            <div class="facts"><span><b data-i18n="fmt"></b> <span data-i18n="r4_fmt"></span></span><span><b data-i18n="lang"></b> <span data-i18n="l_ar"></span></span></div>
+          </div>
+        </article>
+
+        <article class="row" data-key="r5" data-type="path" data-topics="env env-sbt target" data-langs="en-us fr ar">
+          <div class="img" style="background-image:url('img/caa.jpg')"></div>
+          <div class="body">
+            <svg class="heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>
+            <div class="pills"><span class="pill" data-i18n="p_path"></span></div>
+            <h3><a href="https://academy.unglobalcompact.org/home/library" data-i18n="r5_t"></a></h3>
+            <div class="alt" data-i18n="r5_alt"></div>
+            <p data-i18n="r5"></p>
+            <div class="facts"><span><b data-i18n="lang"></b> <span data-i18n="l_three"></span></span></div>
+          </div>
+        </article>
+
+      </div>
+      <div class="empty" id="empty" hidden>
+        <svg viewBox="0 0 120 120" fill="none" stroke="#2BAE9A" stroke-width="2.4" aria-hidden="true"><circle cx="60" cy="60" r="44" fill="#E6F6F3" stroke="none"/><path d="M38 76c0-14 8-26 20-26s16 8 16 16-5 12-5 18M50 44c3-6 8-9 14-9 9 0 15 7 15 15"/><path d="M58 64c4 0 7-2 7-5"/><path d="M53 54c0-3 3-5 6-5"/></svg>
+        <div data-i18n="empty"></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section id="spark"><div class="wrap">
+  <div class="lane">
+    <div class="cap"><h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><span data-i18n="r4_t"></span> <span class="count">(6)</span></h3><a class="all" href="https://academy.unglobalcompact.org/home-v2/dashboard-v2" data-i18n="showall"></a></div>
+    <ul class="cards">
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/3272194"><div class="ti" style="background-image:url('img/sme.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">Future-proofing your small and medium-sized enterprise (حماية مستقبل مؤسستك الصغيرة والمتوسطة)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_ar"></div></a></li>
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/9009872"><div class="ti" style="background-image:url('img/spark.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">Managing Environmental Risks (إدارة المخاطر البيئية)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_ar"></div></a></li>
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/9009875"><div class="ti" style="background-image:url('img/spark.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">Using Social Responsibility to Build a People-First Business (استخدام المسؤولية الاجتماعية لبناء أعمال تجارية تركز على الإنسان أولاً)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_ar"></div></a></li>
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/9009873"><div class="ti" style="background-image:url('img/spark.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">Improving Governance &amp; Preventing Corruption (تحسين الحوكمة ومنع الفساد)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_ar"></div></a></li>
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/9009874"><div class="ti" style="background-image:url('img/spark.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">How to Develop an Anti-Corruption Code of Conduct (كيفية تطوير مدونة قواعد سلوك لمكافحة الفساد)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_ar"></div></a></li>
+      <li><a class="tc" href="https://academy.unglobalcompact.org/course/9037298"><div class="ti" style="background-image:url('img/spark.jpg')"></div><div class="tp"></div><div class="tm"><h4 class="tn">SPARK 2026: Live Session Recordings (سبارك 2026: تسجيلات الجلسات المباشرة)</h4><div class="tt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg><span data-i18n="p_course"></span></div></div><div class="tf" data-i18n="tf_rec"></div></a></li>
+    </ul>
+  </div>
+</div></section>
+
+<section id="cases"><div class="wrap">
+  <div class="cap"><h2 data-i18n="cs_h"></h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><a class="all" href="https://unglobalcompact.org/academy/case-library?text=&amp;region%5B5%5D=5" data-i18n="showall"></a></div>
+  <p class="netintro" data-i18n="cs_p"></p>
+  <div class="cases">
+    <a class="case" href="https://unglobalcompact.org/academy/case-library/chalhoubs-inclusive-workplace-redesign-expands-womens-employment-across-gulf"><div class="ci" style="background-image:url('img/cs1.jpg')"></div><span class="lbl" data-i18n="cs_lbl"></span><h3 data-i18n="cs1_t"></h3><p data-i18n="cs1"></p></a>
+    <a class="case" href="https://unglobalcompact.org/academy/case-library/chitelix-turns-100-tonnes-marine-products-emissions-reductions-and-new-revenue"><div class="ci" style="background-image:url('img/cs2.jpg')"></div><span class="lbl" data-i18n="cs_lbl"></span><h3 data-i18n="cs2_t"></h3><p data-i18n="cs2"></p></a>
+    <a class="case" href="https://unglobalcompact.org/academy/case-library/embedding-gender-equality-drives-45-client-growth-kristieslab"><div class="ci" style="background-image:url('img/cs3.jpg')"></div><span class="lbl" data-i18n="cs_lbl"></span><h3 data-i18n="cs3_t"></h3><p data-i18n="cs3"></p></a>
+    <a class="case" href="https://unglobalcompact.org/academy/case-library/how-menara-holding-saved-900k-year-through-sustainable-management"><div class="ci" style="background-image:url('img/cs4.jpg')"></div><span class="lbl" data-i18n="cs_lbl"></span><h3 data-i18n="cs4_t"></h3><p data-i18n="cs4"></p></a>
+  </div>
+  <div class="casecta"><a class="obtn" href="https://unglobalcompact.org/academy/case-library?text=&amp;region%5B5%5D=5"><span data-i18n="cs_cta"></span><span class="arr" aria-hidden="true">→</span></a></div>
+</div></section>
+
+<section id="networks"><div class="wrap">
+  <div class="cap"><h2 data-i18n="n_h"></h2><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg><a class="all" href="https://unglobalcompact.org/engage-locally" data-i18n="showall"></a></div>
+  <p class="netintro" data-i18n="n_p"></p>
+  <div class="nets">
+    <div class="net"><div class="ph" style="background-image:url('img/amman.jpg')"></div><div class="lg"><img src="img/logo-jo.png" data-en="img/logo-jo.png" data-ar="img/logo-jo.png" alt="Global Compact Network Jordan"></div><div class="cty" data-i18n="c_jo"></div></div>
+    <div class="net"><div class="ph" style="background-image:url('img/beirut.jpg')"></div><div class="lg"><img src="img/logo-lb.png" data-en="img/logo-lb.png" data-ar="img/logo-lb-ar.png" alt="Global Compact Network Lebanon"></div><div class="cty" data-i18n="c_lb"></div></div>
+    <div class="net"><div class="ph" style="background-image:url('img/riyadh.jpg')"></div><div class="lg"><img src="img/logo-sa.png" data-en="img/logo-sa.png" data-ar="img/logo-sa-ar.png" alt="Global Compact Network Saudi Arabia"></div><div class="cty" data-i18n="c_sa"></div></div>
+    <div class="net"><div class="ph" style="background-image:url('img/dubai.jpg')"></div><div class="lg"><img src="img/logo-ae.png" data-en="img/logo-ae.png" data-ar="img/logo-ae.png" alt="Global Compact Network UAE"></div><div class="cty" data-i18n="c_ae"></div></div>
+  </div>
+</div></section>
+
+</main>
+
+<script>
+const TOPICS=[
+ ["env","Climate Change and Environment","تغيّر المناخ والبيئة",[["env-bio","Biodiversity & Nature","التنوّع البيولوجي والطبيعة"],["env-adapt","Climate Adaptation","التكيّف مع تغيّر المناخ"],["env-health","Climate health","المناخ والصحة"],["env-jt","Just Transition","التحوّل العادل"],["env-ocean","Ocean","المحيطات"],["env-sbt","Science-based targets","الأهداف القائمة على العلم"],["env-water","Water","المياه"]]],
+ ["gender","Gender Equality","المساواة بين الجنسين",[["g-act","Actions for Gender Equality","إجراءات لتحقيق المساواة بين الجنسين"],["g-dei","Diversity, Equity and Inclusion","التنوّع والإنصاف والشمول"],["g-pay","Equal Pay","المساواة في الأجور"],["g-lead","Gender equality leadership","القيادة في مجال المساواة بين الجنسين"],["g-ally","Male Allyship","مناصرة الرجال للمساواة بين الجنسين"],["g-women","Women’s Representation & Leadership","تمثيل المرأة وقيادتها"]]],
+ ["gov","Governance and Anti-Corruption","الحوكمة ومكافحة الفساد",[["gov-ac","Anti-corruption","مكافحة الفساد"],["gov-int","Business Integrity","النزاهة في الأعمال"],["gov-tr","Transformational governance","الحوكمة التحويلية"]]],
+ ["hr","Human Rights","حقوق الإنسان",[["hr-bhr","Business and human rights","الأعمال التجارية وحقوق الإنسان"],["hr-di","Diversity and Inclusion","التنوّع والشمول"],["hr-hrdd","Human Rights Due Diligence","العناية الواجبة في مجال حقوق الإنسان"]]],
+ ["lab","Labour and Decent Work","العمل والعمل اللائق",[["lab-dw","Decent work","العمل اللائق"],["lab-rights","Labour Rights","حقوق العمّال"],["lab-lw","Living wage","الأجر المعيشي"]]],
+ ["proc","Sustainable Procurement","المشتريات المستدامة",[]],
+ ["sdg","SDG Integration","إدماج أهداف التنمية المستدامة",[["sdg-ff","Forward Faster","مبادرة «Forward Faster»"],["sdg-fin","SDG Financing","تمويل أهداف التنمية المستدامة"],["sdg-int","SDG Integration","إدماج أهداف التنمية المستدامة"],["sdg-lead","SDG Leadership","القيادة في مجال أهداف التنمية المستدامة"]]],
+ ["sme","SMEs","المؤسسات الصغيرة والمتوسطة",[]],
+ ["supply","Supply Chains","سلاسل التوريد",[]],
+ ["report","Sustainability Reporting & Disclosure","إعداد تقارير الاستدامة والإفصاح",[]],
+ ["esg","Sustainability/ESG Regulations","لوائح الاستدامة والحوكمة البيئية والاجتماعية والمؤسسية",[]],
+ ["target","Target Setting","تحديد الأهداف",[]]
+];
+const LANGS=[["ar","Arabic","العربية"],["en-us","English","الإنكليزية"],["fr","French","الفرنسية"]];
+const TYPES=[["course","Courses","الدورات"],["path","Learning Paths","المسارات التعليمية"],["coll","Collections","المجموعات"]];
+
+const T={
+en:{
+b4:"Case studies",cs_h:"Case Studies from the Region",cs_lbl:"Case Study",
+cs_p:"See how companies across the Middle East and North Africa are putting the Ten Principles into practice, with measurable results for their business and their communities.",
+cs_cta:"Browse all Middle East and North Africa case studies",
+cs1_t:"Chalhoub’s inclusive workplace redesign expands women’s employment across the Gulf region",cs1:"Using data, policy and culture to close pay gaps and bring women into new roles.",
+cs2_t:"Chitelix Turns 100+ Tonnes of Marine By-Products into Emissions Reductions and New Revenue",cs2:"How a Tunisian biotech built a circular blue bioeconomy model that transforms marine by-products into agricultural inputs.",
+cs3_t:"Embedding Gender Equality Drives 45% Client Growth at KristiesLab",cs3:"Discover how gender equality is redefining leadership and driving business growth.",
+cs4_t:"How Menara Holding Saved $900K a Year Through Sustainable Management",cs4:"Learn how water preservation efforts are creating a resilient future.",
+nav1:"Home",nav2:"Learning Library",nav3:"Assigned Training",nav4:"Live Sessions",nav5:"Achievements",nav6:"Middle East",
+ph_search:"Search content by title, description, or tags",
+kicker:"Middle East Regional Academy",
+h1:"Advancing Responsible Business Across the Middle East",
+sub:"Learning that leads to action, in Arabic and English",
+b1:"Explore regional learning",b2:"SPARK Arabic Track",b3:"Find your Country Network",
+w_h:"Welcome to the Middle East Regional Academy",
+w_p1:"Across the Middle East, business is expected to do more than grow. Investors, buyers, Governments and communities increasingly look to companies to respect human rights, protect the environment, act with integrity and remain resilient in the face of conflict, economic volatility and a changing climate.",
+w_p2:"The Middle East Regional Academy brings the learning of the United Nations Global Compact closer to the companies that operate here. Developed with Global Compact Country Networks across the region and delivered in Arabic and English, it translates the Ten Principles of the UN Global Compact and the Global Goals into practical guidance grounded in regional markets, regulations and realities.",
+w_p3:"Whether you lead a multinational, run a family business or supply a global value chain, this is your starting point to build capability, strengthen accountability and turn commitment into action.",
+v1h:"Designed for the region",v1:"Case studies, speakers and risk scenarios drawn from Middle East markets, including heightened-risk and conflict-affected contexts.",
+v2h:"In Arabic and English",v2:"A growing catalogue of Arabic-language learning, led by the SPARK 2026 Arabic Track for small and medium-sized enterprises and suppliers.",
+v3h:"Powered by Country Networks",v3:"Developed with Global Compact Country Networks in the region, linking online learning to local peer exchange, events and support.",
+f_h:"Regional Learning Library",showall:"Show All",
+f_type:"Content Type",f_topic:"Topic",f_lang:"Languages",ph_topic:"Topic",
+reset:"Reset filters",sort:"Sort:",s_def:"Default",s_az:"Title (A–Z)",s_za:"Title (Z–A)",chip_q:"Title or Description",
+empty:"No content was found that matches your search. Please modify your search and try again.",
+p_course:"Course",p_path:"Learning Path",p_soon:"Coming Soon",p_ar:"Arabic",
+fmt:"Format:",lang:"Language:",partners:"In partnership with:",l_en:"English",l_ar:"Arabic",l_three:"English, French and Arabic",
+r1_t:"Middle East Regional Webinar Series: Advancing Responsible Business Conduct: Human Rights Due Diligence and Strategic Communication",
+r1_alt:"سلسلة الندوات الإقليمية للشرق الأوسط: تعزيز السلوك المسؤول للأعمال",
+r1:"This regional webinar series explores responsible business conduct in practice, with a focus on human rights due diligence, heightened-risk contexts and strategic communication. Through two recorded sessions, learners gain practical insights from Global Compact Country Networks, expert speakers and private sector practitioners on how companies can identify and manage human rights risks, communicate responsibly in uncertain times and strengthen trust with stakeholders.",
+r1_fmt:"2 recorded sessions",
+r2_t:"Green Public Procurement: Unlocking Opportunities for Sustainable Business",
+r2_alt:"المشتريات العامة الخضراء: إطلاق فرص الأعمال المستدامة",
+r2:"Public procurement accounts for a growing share of national GDP across the Middle East and Asia Pacific, and Governments are increasingly integrating sustainability criteria into how they buy. This cross-regional webinar introduces the fundamentals of Green Public Procurement and offers practical guidance to help companies, and SMEs in particular, understand requirements, access the right tools and compete for sustainable contracts.",
+r2_par:"International Trade Centre (ITC) and UNOPS",r2_fmt:"1 recorded webinar",
+r3_t:"Preparing for Disruption: Ensuring Business Continuity in Uncertain Times",
+r3_alt:"الاستعداد للاضطرابات: ضمان استمرارية الأعمال في أوقات عدم اليقين",
+r3:"Conflict, supply chain shocks, currency volatility and climate events can halt operations overnight. This upcoming session examines how companies can prepare for disruption while protecting their people, maintaining critical operations and upholding their responsibilities to workers, suppliers and communities.",
+r3_fmt:"Recorded session, date to be announced",
+r4_t:"SPARK 2026: Arabic Track",
+r4_alt:"سبارك 2026: المسار العربي",
+r4:"SPARK is a three-month learning journey from the UN Global Compact that helps small and medium-sized enterprises and suppliers build practical sustainability capabilities and stay competitive in global value chains. As expectations across supply chains rise, the Arabic Track brings five self-paced courses and live session recordings together in Arabic, covering environmental risk, social responsibility, governance and anti-corruption.",
+r4_fmt:"5 courses and live session recordings",
+r5_t:"Climate Ambition Accelerator Alumni - Middle East Regional Track (English, French & Arabic)",
+r5_alt:"خرّيجو مسرّع الطموح المناخي: المسار الإقليمي للشرق الأوسط",
+r5:"A dedicated learning path for alumni of the Climate Ambition Accelerator in the Middle East, with on-demand content in English, French and Arabic to help companies move from science-based targets to implementation.",
+tf_ar:"Arabic Track",tf_rec:"Live Session Recordings",
+n_h:"Country Networks in the Region",
+n_p:"Country Networks are the local presence of the UN Global Compact. They convene business, deliver learning in local languages and connect what you learn on the Academy to action on the ground.",
+c_jo:"Amman, Jordan",c_lb:"Beirut, Lebanon",c_sa:"Riyadh, Saudi Arabia",c_ae:"Dubai, United Arab Emirates",
+s_h:"How to Get Started",
+s1h:"Sign in",s1:"Use your organization email to access the Academy.",
+s2h:"Choose your learning",s2:"Select a regional course or the SPARK Arabic Track and enrol.",
+s3h:"Learn at your own pace",s3:"Complete the modules and share your feedback.",
+s4h:"Track your achievements",s4:"Completed learning is recorded under Achievements.",
+credits:"Photos via Unsplash: Wafiq Raza (banner), Hisham Zayadneh (Amman), Ahmad Jamal (Beirut), سيف الظاهر (Riyadh), ZQ Lee (Dubai). Draft concept prepared by Global Compact Network Lebanon."
+},
+ar:{
+b4:"دراسات الحالة",cs_h:"دراسات حالة من المنطقة",cs_lbl:"دراسة حالة",
+cs_p:"اطّلع على الطريقة التي تطبّق بها الشركات في الشرق الأوسط وشمال أفريقيا المبادئ العشرة، وما تحققه من نتائج ملموسة لأعمالها ومجتمعاتها.",
+cs_cta:"تصفّح جميع دراسات الحالة من الشرق الأوسط وشمال أفريقيا",
+cs1_t:"إعادة تصميم بيئة العمل الشاملة لدى مجموعة شلهوب توسّع فرص توظيف النساء في منطقة الخليج",cs1:"توظيف البيانات والسياسات وثقافة المؤسسة لسدّ الفجوات في الأجور وإتاحة أدوار جديدة أمام النساء.",
+cs2_t:"شيتليكس تحوّل أكثر من 100 طن من المنتجات البحرية الثانوية إلى خفضٍ للانبعاثات وإيرادات جديدة",cs2:"كيف بنت شركة تونسية للتكنولوجيا الحيوية نموذجاً دائرياً للاقتصاد الحيوي الأزرق يحوّل المنتجات البحرية الثانوية إلى مدخلات زراعية.",
+cs3_t:"ترسيخ المساواة بين الجنسين يرفع عدد عملاء KristiesLab بنسبة 45%",cs3:"اكتشف كيف تعيد المساواة بين الجنسين تعريف القيادة وتدفع نموّ الأعمال.",
+cs4_t:"كيف وفّرت منارة القابضة 900 ألف دولار سنوياً بفضل الإدارة المستدامة",cs4:"تعرّف إلى الطريقة التي تُسهم بها جهود الحفاظ على المياه في بناء مستقبل أكثر قدرة على الصمود.",
+nav1:"الرئيسية",nav2:"مكتبة التعلّم",nav3:"التدريب المُسنَد",nav4:"الجلسات المباشرة",nav5:"الإنجازات",nav6:"الشرق الأوسط",
+ph_search:"ابحث في المحتوى حسب العنوان أو الوصف أو الوسوم",
+kicker:"الأكاديمية الإقليمية للشرق الأوسط",
+h1:"النهوض بالأعمال المسؤولة في أرجاء الشرق الأوسط",
+sub:"تعلّمٌ يقود إلى العمل، بالعربية والإنكليزية",
+b1:"استكشف التعلّم الإقليمي",b2:"مسار سبارك بالعربية",b3:"اعثر على شبكتك المحلية",
+w_h:"مرحباً بكم في الأكاديمية الإقليمية للشرق الأوسط",
+w_p1:"في أرجاء الشرق الأوسط، لم يعد المطلوب من الشركات أن تنمو فحسب. إذ يتطلّع المستثمرون والمشترون والحكومات والمجتمعات، على نحو متزايد، إلى أن تحترم الشركات حقوق الإنسان، وتحمي البيئة، وتعمل بنزاهة، وتحافظ على قدرتها على الصمود في وجه النزاعات والتقلّبات الاقتصادية وتغيّر المناخ.",
+w_p2:"تُقرِّب الأكاديمية الإقليمية للشرق الأوسط المحتوى التعليمي للاتفاق العالمي للأمم المتحدة من الشركات العاملة في المنطقة. وقد طُوِّرت بالتعاون مع شبكات الاتفاق العالمي المحلية في المنطقة، وتُقدَّم باللغتين العربية والإنكليزية، لتحوّل المبادئ العشرة للاتفاق العالمي للأمم المتحدة وأهداف التنمية المستدامة إلى إرشادات عملية تنطلق من واقع أسواق المنطقة وأطرها التنظيمية.",
+w_p3:"سواء كنتَ تقود شركة متعددة الجنسيات، أو تدير شركة عائلية، أو تعمل مورّداً ضمن سلسلة قيمة عالمية، فهذه نقطة انطلاقك لبناء القدرات وتعزيز المساءلة وتحويل الالتزام إلى عمل.",
+v1h:"مصمَّمة للمنطقة",v1:"دراسات حالة ومتحدّثون وسيناريوهات للمخاطر مستمدّة من أسواق الشرق الأوسط، بما في ذلك السياقات عالية المخاطر والمتأثّرة بالنزاعات.",
+v2h:"بالعربية والإنكليزية",v2:"محتوى تعليمي متنامٍ باللغة العربية، في مقدّمته مسار سبارك 2026 باللغة العربية المخصّص للشركات الصغيرة والمتوسطة والموردين.",
+v3h:"بدعم من الشبكات المحلية",v3:"طُوِّرت بالتعاون مع شبكات الاتفاق العالمي المحلية في المنطقة، لتربط التعلّم الإلكتروني بتبادل الخبرات بين النظراء والفعاليات والدعم على المستوى المحلي.",
+f_h:"المكتبة التعليمية الإقليمية",showall:"عرض الكل",
+f_type:"نوع المحتوى",f_topic:"الموضوع",f_lang:"اللغات",ph_topic:"الموضوع",
+reset:"إعادة ضبط عوامل التصفية",sort:"الترتيب:",s_def:"افتراضي",s_az:"العنوان (أ–ي)",s_za:"العنوان (ي–أ)",chip_q:"العنوان أو الوصف",
+empty:"لم يُعثر على محتوى يطابق بحثك. يُرجى تعديل البحث والمحاولة مرة أخرى.",
+p_course:"دورة",p_path:"مسار تعليمي",p_soon:"قريباً",p_ar:"العربية",
+fmt:"الصيغة:",lang:"اللغة:",partners:"بالشراكة مع:",l_en:"الإنكليزية",l_ar:"العربية",l_three:"الإنكليزية والفرنسية والعربية",
+r1_t:"سلسلة الندوات الإقليمية للشرق الأوسط: تعزيز السلوك المسؤول للأعمال – العناية الواجبة في مجال حقوق الإنسان والتواصل الاستراتيجي",
+r1_alt:"Middle East Regional Webinar Series: Advancing Responsible Business Conduct: Human Rights Due Diligence and Strategic Communication",
+r1:"تتناول سلسلة الندوات الإقليمية هذه السلوكَ المسؤول للأعمال من منظور عملي، مع التركيز على العناية الواجبة في مجال حقوق الإنسان، والسياقات عالية المخاطر، والتواصل الاستراتيجي. ومن خلال جلستين مسجّلتين، يكتسب المتعلّمون رؤى عملية من شبكات الاتفاق العالمي المحلية وخبراء متخصّصين وممارسين من القطاع الخاص حول كيفية تحديد الشركات لمخاطر حقوق الإنسان وإدارتها، والتواصل بمسؤولية في أوقات عدم اليقين، وتعزيز الثقة مع أصحاب المصلحة.",
+r1_fmt:"جلستان مسجّلتان",
+r2_t:"المشتريات العامة الخضراء: إطلاق فرص الأعمال المستدامة",
+r2_alt:"Green Public Procurement: Unlocking Opportunities for Sustainable Business",
+r2:"تمثّل المشتريات العامة حصة متزايدة من الناتج المحلي الإجمالي في بلدان الشرق الأوسط وآسيا والمحيط الهادئ، وتعمل الحكومات بشكل متزايد على إدماج معايير الاستدامة في عمليات الشراء. تقدّم هذه الندوة العابرة للأقاليم أساسيات المشتريات العامة الخضراء، وإرشادات عملية تساعد الشركات، ولا سيما الصغيرة والمتوسطة منها، على فهم المتطلبات والوصول إلى الأدوات المناسبة والمنافسة على العقود المستدامة.",
+r2_par:"مركز التجارة الدولية (ITC) ومكتب الأمم المتحدة لخدمات المشاريع (UNOPS)",r2_fmt:"ندوة مسجّلة واحدة",
+r3_t:"الاستعداد للاضطرابات: ضمان استمرارية الأعمال في أوقات عدم اليقين",
+r3_alt:"Preparing for Disruption: Ensuring Business Continuity in Uncertain Times",
+r3:"قد تؤدّي النزاعات وصدمات سلاسل التوريد وتقلّبات أسعار العملات والظواهر المناخية إلى توقّف العمليات بين ليلة وضحاها. تتناول هذه الجلسة المرتقبة كيف يمكن للشركات الاستعداد للاضطرابات مع حماية موظفيها، والحفاظ على استمرارية عملياتها الحيوية، والوفاء بمسؤولياتها تجاه العاملين والموردين والمجتمعات.",
+r3_fmt:"جلسة مسجّلة، يُعلَن موعدها لاحقاً",
+r4_t:"سبارك 2026: المسار العربي",
+r4_alt:"SPARK 2026: Arabic Track",
+r4:"سبارك (SPARK) رحلة تعلّم مدّتها ثلاثة أشهر يقدّمها الاتفاق العالمي للأمم المتحدة، صُمِّمت لمساعدة الشركات الصغيرة والمتوسطة والموردين على بناء قدرات عملية في مجال الاستدامة والحفاظ على قدرتهم التنافسية ضمن سلاسل القيمة العالمية. ومع تزايد التوقّعات عبر سلاسل التوريد، يجمع المسار العربي خمس دورات للتعلّم الذاتي وتسجيلات الجلسات المباشرة باللغة العربية، وتغطّي المخاطر البيئية والمسؤولية الاجتماعية والحوكمة ومكافحة الفساد.",
+r4_fmt:"خمس دورات وتسجيلات الجلسات المباشرة",
+r5_t:"خرّيجو مسرّع الطموح المناخي: المسار الإقليمي للشرق الأوسط (بالإنكليزية والفرنسية والعربية)",
+r5_alt:"Climate Ambition Accelerator Alumni - Middle East Regional Track (English, French & Arabic)",
+r5:"مسار تعليمي مخصّص لخرّيجي برنامج مسرّع الطموح المناخي في الشرق الأوسط، يضمّ محتوى متاحاً عند الطلب بالإنكليزية والفرنسية والعربية، لمساعدة الشركات على الانتقال من وضع الأهداف القائمة على العلم إلى تنفيذها.",
+tf_ar:"المسار العربي",tf_rec:"تسجيلات الجلسات المباشرة",
+n_h:"الشبكات المحلية في المنطقة",
+n_p:"تمثّل الشبكات المحلية الحضور الميداني للاتفاق العالمي للأمم المتحدة في كل بلد، إذ تجمع قطاع الأعمال، وتقدّم التعلّم باللغات المحلية، وتربط ما تتعلّمه على الأكاديمية بالعمل على أرض الواقع.",
+c_jo:"عمّان، الأردن",c_lb:"بيروت، لبنان",c_sa:"الرياض، المملكة العربية السعودية",c_ae:"دبي، الإمارات العربية المتحدة",
+s_h:"كيف تبدأ",
+s1h:"سجّل الدخول",s1:"استخدم البريد الإلكتروني الخاص بمؤسستك للدخول إلى الأكاديمية.",
+s2h:"اختر ما تودّ تعلّمه",s2:"اختر دورة إقليمية أو مسار سبارك باللغة العربية، ثم سجّل فيه.",
+s3h:"تعلّم وفق وتيرتك",s3:"أكمل الوحدات التعليمية وشارك ملاحظاتك.",
+s4h:"تابع إنجازاتك",s4:"يُسجَّل كل ما تُتمّه من محتوى تعليمي في قسم «الإنجازات».",
+credits:"الصور من Unsplash: وفيق رضا (الصورة الرئيسية)، هشام زيادنة (عمّان)، أحمد جمال (بيروت)، سيف الظاهر (الرياض)، ZQ Lee (دبي). مسودة من إعداد شبكة الاتفاق العالمي في لبنان."
+}};
+
+let cur="en";
+const state={q:"",types:new Set(),topics:new Set(),langs:new Set(),sort:"d",open:{type:true,topic:true,lang:true},kids:{env:true},tq:""};
+const L=i=>cur==="ar"?i[2]:i[1];
+const chevUp='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
+const chevDown='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function chk(set,id,label,bold){return `<label class="chk${bold?" b":""}"><input type="checkbox" data-set="${set}" value="${id}"${state[set].has(id)?" checked":""}><span>${esc(label)}</span></label>`}
+function renderFilters(){
+  const d=T[cur],tq=state.tq.toLowerCase();
+  const tree=TOPICS.map(t=>{
+    const pm=!tq||L(t).toLowerCase().includes(tq);
+    const kids=t[3].filter(k=>pm||L(k).toLowerCase().includes(tq));
+    if(!pm&&!kids.length)return"";
+    if(!t[3].length)return `<div class="tnode tleaf">${chk("topics",t[0],L(t))}</div>`;
+    const open=state.kids[t[0]]||!!tq;
+    return `<div class="tnode"><div class="tparent"><button type="button" class="tog" data-kid="${t[0]}" aria-expanded="${open}" aria-label="${esc(L(t))}">${chevDown}</button>${chk("topics",t[0],L(t))}</div>${open?`<div class="tkids">${kids.map(k=>chk("topics",k[0],L(k))).join("")}</div>`:""}</div>`}).join("");
+  document.getElementById("filters").innerHTML=
+   `<div class="fgroup"><button type="button" class="fhead" data-open="type" aria-expanded="${state.open.type}">${d.f_type}${chevUp}</button>${state.open.type?`<div class="fbody">${TYPES.map(t=>chk("types",t[0],L(t),true)).join("")}</div>`:""}</div>
+    <div class="fgroup"><button type="button" class="fhead" data-open="topic" aria-expanded="${state.open.topic}">${d.f_topic}${chevUp}</button>${state.open.topic?`<div class="tsearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m20 20-4.8-4.8"/></svg><input id="tq" type="text" placeholder="${d.ph_topic}" value="${esc(state.tq)}" aria-label="${d.f_topic}"></div><div class="tree">${tree}</div>`:""}</div>
+    <div class="fgroup"><button type="button" class="fhead" data-open="lang" aria-expanded="${state.open.lang}">${d.f_lang}${chevUp}</button>${state.open.lang?`<div class="fbody tree">${LANGS.map(l=>chk("langs",l[0],L(l))).join("")}</div>`:""}</div>`;
+  const ti=document.getElementById("tq");
+  if(ti)ti.oninput=()=>{state.tq=ti.value;const pos=ti.selectionStart;renderFilters();const n=document.getElementById("tq");n.focus();n.setSelectionRange(pos,pos)};
+}
+function topicMatch(row){
+  if(!state.topics.size)return true;
+  const tags=row.dataset.topics.split(" ");
+  for(const sel of state.topics){
+    const parent=TOPICS.find(t=>t[0]===sel);
+    const ids=parent?[sel,...parent[3].map(k=>k[0])]:[sel];
+    if(ids.some(i=>tags.includes(i)))return true;
+  }
+  return false;
+}
+function nameOf(set,id){if(set==="types")return L(TYPES.find(t=>t[0]===id));if(set==="langs")return L(LANGS.find(t=>t[0]===id));for(const t of TOPICS){if(t[0]===id)return L(t);const k=t[3].find(k=>k[0]===id);if(k)return L(k)}return id}
+function apply(){
+  const rows=[...document.querySelectorAll("#rows .row")];let n=0;
+  const q=state.q.trim().toLowerCase();
+  rows.forEach(r=>{
+    const k=r.dataset.key;
+    const hay=[T.en[k+"_t"],T.en[k],T.ar[k+"_t"],T.ar[k]].join(" ").toLowerCase();
+    const ok=(!q||hay.includes(q))&&(!state.types.size||state.types.has(r.dataset.type))&&topicMatch(r)&&(!state.langs.size||r.dataset.langs.split(" ").some(l=>state.langs.has(l)));
+    r.hidden=!ok;if(ok)n++;
+  });
+  const box=document.getElementById("rows");
+  [...rows].sort((a,b)=>state.sort==="d"?a.dataset.key.localeCompare(b.dataset.key):T[cur][a.dataset.key+"_t"].localeCompare(T[cur][b.dataset.key+"_t"],cur)*(state.sort==="az"?1:-1)).forEach(r=>box.appendChild(r));
+  document.getElementById("empty").hidden=n>0;
+  const d=T[cur],chips=[];
+  if(q)chips.push(`<button type="button" class="fchip" data-clear="q">${d.chip_q}: ${esc(state.q)} <span class="x">✕</span></button>`);
+  ["types","topics","langs"].forEach(s=>state[s].forEach(id=>chips.push(`<button type="button" class="fchip" data-clear="${s}" data-id="${id}">${esc(nameOf(s,id))} <span class="x">✕</span></button>`)));
+  document.getElementById("chips").innerHTML=chips.join("");
+}
+function setLang(l){
+  cur=l;const d=T[l],r=document.documentElement;r.lang=l;r.dir=l==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(d[k]!=null)el.textContent=d[k]});
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>el.placeholder=d[el.dataset.i18nPh]);
+  document.querySelectorAll("img[data-en]").forEach(im=>im.src=im.dataset[l]);
+  document.getElementById("langLabel").textContent=l==="ar"?"العربية":"EN";
+  document.querySelectorAll("#langMenu button").forEach(b=>b.setAttribute("aria-current",b.dataset.lang===l));
+  renderFilters();apply();
+  try{localStorage.setItem("me-academy-lang",l)}catch(e){}
+}
+const F=document.getElementById("filters");
+F.addEventListener("change",e=>{const i=e.target;if(i.dataset.set){i.checked?state[i.dataset.set].add(i.value):state[i.dataset.set].delete(i.value);apply()}});
+F.addEventListener("click",e=>{
+  const h=e.target.closest(".fhead");if(h){state.open[h.dataset.open]=!state.open[h.dataset.open];renderFilters();return}
+  const t=e.target.closest(".tog");if(t){state.kids[t.dataset.kid]=!state.kids[t.dataset.kid];renderFilters()}
+});
+document.getElementById("chips").addEventListener("click",e=>{const c=e.target.closest(".fchip");if(!c)return;if(c.dataset.clear==="q"){state.q="";document.getElementById("q").value=""}else state[c.dataset.clear].delete(c.dataset.id);renderFilters();apply()});
+document.getElementById("reset").onclick=()=>{state.q="";state.tq="";document.getElementById("q").value="";state.types.clear();state.topics.clear();state.langs.clear();renderFilters();apply()};
+document.getElementById("sort").onchange=e=>{state.sort=e.target.value;apply()};
+const qi=document.getElementById("q");
+qi.addEventListener("input",()=>{state.q=qi.value;apply()});
+qi.addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("library").scrollIntoView({behavior:"smooth"})});
+const setView=g=>{document.getElementById("rows").classList.toggle("grid",g);document.getElementById("vGrid").setAttribute("aria-pressed",g);document.getElementById("vList").setAttribute("aria-pressed",!g)};
+document.getElementById("vGrid").onclick=()=>setView(true);document.getElementById("vList").onclick=()=>setView(false);
+const menu=document.getElementById("langMenu"),lb=document.getElementById("langBtn");
+lb.onclick=()=>{menu.hidden=!menu.hidden;lb.setAttribute("aria-expanded",!menu.hidden)};
+menu.querySelectorAll("button").forEach(b=>b.onclick=()=>{setLang(b.dataset.lang);menu.hidden=true;lb.setAttribute("aria-expanded","false")});
+document.addEventListener("click",e=>{if(!e.target.closest(".tools"))menu.hidden=true});
+let start="en";try{start=localStorage.getItem("me-academy-lang")||"en"}catch(e){}
+if(location.hash==="#ar")start="ar";if(location.hash==="#en")start="en";
+setLang(start);
+</script>
+</body></html>
